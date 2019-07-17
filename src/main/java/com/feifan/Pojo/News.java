@@ -2,8 +2,6 @@ package com.feifan.Pojo;
 
 import lombok.*;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -11,9 +9,17 @@ import java.time.LocalDate;
 @ToString
 public class News {
    private Integer newsId;
-   private Integer typeId;
+   private Integer parentId;
    private String title;
-   private LocalDate publishedDate;
-   private String contents;
+   private String publisher;
+   private String author;
+   private String content;
+   private String publishTime;
+   private int statusId;
+   private String images;
+   private int commentId;
+   private int like;
+
+
 
 }
