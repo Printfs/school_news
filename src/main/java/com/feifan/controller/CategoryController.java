@@ -36,7 +36,9 @@ public class CategoryController {
 
     @RequestMapping("getAllType.do")
     @ResponseBody
-    public ServletResponse<PageInfo> get_type(HttpSession session, @RequestParam(value = "pageNum",defaultValue = "1") int pageNum, @RequestParam(value = "pageSize",defaultValue = "5") int pageSize){
+    public ServletResponse<PageInfo> get_type(HttpSession session,
+                                              @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
+                                              @RequestParam(value = "pageSize",defaultValue = "5") int pageSize){
         Object user = session.getAttribute("user");
         //检查user身份
 

@@ -49,6 +49,8 @@ public class CategoryServiceImpl implements CategoryService {
        if(types == null){
            return ServletResponse.createByErrorMessage("没有节点");
        }
+
+       //创建分页
        PageInfo pageInfo=new PageInfo(types);
 
        return ServletResponse.createBySuccess(pageInfo);
