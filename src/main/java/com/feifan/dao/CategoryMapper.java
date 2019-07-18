@@ -1,7 +1,6 @@
-package com.feifan.Dao;
+package com.feifan.dao;
 
-import com.feifan.Common.ServletResponse;
-import com.feifan.Pojo.Type;
+import com.feifan.common.ServletResponse;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

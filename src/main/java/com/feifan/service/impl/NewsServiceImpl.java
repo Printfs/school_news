@@ -1,9 +1,9 @@
-package com.feifan.Service;
+package com.feifan.service.impl;
 
 
-import com.feifan.Common.ServletResponse;
-import com.feifan.Dao.NewsMapper;
-import com.feifan.Pojo.News;
+import com.feifan.common.ServletResponse;
+import com.feifan.dao.NewsMapper;
+import com.feifan.pojo.News;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

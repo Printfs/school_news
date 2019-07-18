@@ -1,4 +1,4 @@
-package com.feifan.Pojo;
+package com.feifan.pojo;
 
 
 public class Type {
