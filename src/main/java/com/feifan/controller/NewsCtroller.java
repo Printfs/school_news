@@ -1,9 +1,9 @@
-package com.feifan.Controller;
+package com.feifan.controller;
 
 
-import com.feifan.Common.ServletResponse;
-import com.feifan.Pojo.News;
-import com.feifan.Service.NewsServiceImpl;
+import com.feifan.common.ServletResponse;
+import com.feifan.pojo.News;
+import com.feifan.service.impl.NewsServiceImpl;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

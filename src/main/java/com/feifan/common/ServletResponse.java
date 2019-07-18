@@ -1,7 +1,5 @@
-package com.feifan.Common;
+package com.feifan.common;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.io.Serializable;
 
@@ -61,35 +59,35 @@ public class ServletResponse<T> implements Serializable {
      * @param <T>
      * @return
      */
-    public static <T> ServletResponse<T> creatBySuccess() {
+    public static <T> ServletResponse<T> createBySuccess() {//改
         return new ServletResponse(ResponseCode.SUCCESS.getCode());
     }
 
     //访问的是String的构造方法
-    public static <T> ServletResponse<T> creatBySuccessMessage(String msg) {
+    public static <T> ServletResponse<T> createBySuccessMessage(String msg) {
         return new ServletResponse(ResponseCode.SUCCESS.getCode(), msg);
     }
 
-    public static <T> ServletResponse<T> creatBySuccess(T data) {
+    public static <T> ServletResponse<T> createBySuccess(T data) {
         return new ServletResponse(ResponseCode.SUCCESS.getCode(), data);
     }
 
-    public static <T> ServletResponse<T> creatBySuccess(String msg, T data) {
+    public static <T> ServletResponse<T> createBySuccess(String msg, T data) {
         return new ServletResponse(ResponseCode.SUCCESS.getCode(), msg, data);
     }
 
     /**
      * 返回错误的方法
      */
-    public static <T> ServletResponse<T> creatByError() {
+    public static <T> ServletResponse<T> createByError() {
       return new ServletResponse(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getDesc());
     }
     //如果登陆用户名重复
-    public static <T> ServletResponse<T> creatByErrorMessage(String errorMessage){
+    public static <T> ServletResponse<T> createByErrorMessage(String errorMessage){
      return new ServletResponse(ResponseCode.ERROR.getCode(),errorMessage);
     }
 
-    public  static <T> ServletResponse<T> creatByErrorCodeMessage(int errorCode, String errorMessage){
+    public  static <T> ServletResponse<T> createByErrorCodeMessage(int errorCode, String errorMessage){
       return new ServletResponse(errorCode,errorMessage);
     }
 

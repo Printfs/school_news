@@ -1,7 +1,7 @@
-package com.feifan.Controller;
+package com.feifan.controller;
 
 
-import com.feifan.Common.ServletResponse;
+import com.feifan.common.ServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

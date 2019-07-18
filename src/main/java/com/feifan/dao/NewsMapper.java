@@ -1,6 +1,6 @@
-package com.feifan.Dao;
+package com.feifan.dao;
 
-import com.feifan.Pojo.News;
+import com.feifan.pojo.News;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

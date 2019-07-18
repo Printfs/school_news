@@ -1,4 +1,4 @@
-package com.feifan.Common;
+package com.feifan.common;
 
 public enum ResponseCode {
 
