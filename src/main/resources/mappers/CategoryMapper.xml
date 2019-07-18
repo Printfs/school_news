@@ -17,6 +17,13 @@
      SELECT <include refid="BaseSql"/> from type
     </select>
 
+    <delete id="delteCategory" parameterType="string">
+        DELETE from type where kinds=#{kinds}
+    </delete>
+
+    <update id="updateCategory" parameterType="string">
+        UPDATE type set kinds=#{newkinds} where kinds=#{oldkinds}
+    </update>
 
 
 </mapper>
