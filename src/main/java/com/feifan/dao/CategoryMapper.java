@@ -1,14 +1,19 @@
 package com.feifan.dao;
 
-import com.feifan.common.ServletResponse;
+
+import com.feifan.pojo.Type;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 @Mapper
 public interface CategoryMapper {
 
    //添加分类
-    public ServletResponse addType(@Param("kinds") String kinds);
+    public Integer addType(@Param("kinds") String kinds);
 
+    //查询分类
+    public List<Type> selectAllCategory();
 
 }

@@ -9,6 +9,14 @@
       INSERT into type (kinds) VALUE (#{kinds})
     </insert>
 
+    <sql id="BaseSql">
+      typeId,kinds
+    </sql>
+
+    <select id="selectAllCategory" resultType="com.feifan.pojo.Type">
+     SELECT <include refid="BaseSql"/> from type
+    </select>
+
 
 
 </mapper>

@@ -17,7 +17,7 @@ public class NewsServiceImpl {
 
     public ServletResponse get(){
         List<News> getall = newsMapper.getall();
-        return ServletResponse.creatBySuccess(getall);
+        return ServletResponse.createBySuccess(getall);
     }
 
 }

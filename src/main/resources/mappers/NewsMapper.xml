@@ -3,21 +3,13 @@
 
 <mapper namespace="com.feifan.dao.NewsMapper">
 
-    <resultMap id="BaseMapping" type="com.feifan.pojo.News">
-        <id column="newsId" property="newsId" />
-        <result column="typeId" property="typeId" />
-        <result column="title" property="title"/>
-        <result column="publishedDate" property="publishedDate"/>
-        <result column="contents" property="contents"/>
-    </resultMap>
+
 
     <sql id="BaseSql">
         newsId,typeId,title,publishedDate,contents
     </sql>
 
-    <select id="getall"  resultMap="BaseMapping">
-     SELECT <include refid="BaseSql"/> from news
-    </select>
+
 
 
 </mapper>
