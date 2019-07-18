@@ -59,7 +59,7 @@ public class ServletResponse<T> implements Serializable {
      * @param <T>
      * @return
      */
-    public static <T> ServletResponse<T> createBySuccess() {
+    public static <T> ServletResponse<T> createBySuccess() {//改
         return new ServletResponse(ResponseCode.SUCCESS.getCode());
     }
 
