@@ -12,5 +12,7 @@ public interface NoticeMapper {
     public Integer publishNotice(Notice notice);
     //查询
     public List<Notice> selectAll();
+    //删除
+    public Integer delte_notice(Integer noticeId);
 
 }

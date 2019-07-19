@@ -29,6 +29,8 @@
 
     <!--删除-->
 
-    <!--<delete id="deleteNotice" parameterType=""-->
+    <delete id="delte_notice" parameterType="integer">
+        DELETE from notice where noticeId=#{noticeId}
+    </delete>
 
 </mapper>
