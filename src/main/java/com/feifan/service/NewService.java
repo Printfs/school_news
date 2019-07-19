@@ -1,8 +1,12 @@
 package com.feifan.service;
 
 import com.feifan.common.ServletResponse;
+import com.feifan.pojo.News;
 
 public interface NewService {
 
-    public ServletResponse get();
+    //查询所有
+    ServletResponse getAll(Integer pn);
+    //通过Id查询
+    ServletResponse<News> getById(Integer newsId);
 }

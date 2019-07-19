@@ -1,6 +1,5 @@
 package com.feifan.common;
 
-
 import java.io.Serializable;
 
 /**
@@ -38,6 +37,8 @@ public class ServletResponse<T> implements Serializable {
         this.msg = msg;
         this.data = data;
     }
+
+
     //   提供getter方法
 
     public int getStatus() {
