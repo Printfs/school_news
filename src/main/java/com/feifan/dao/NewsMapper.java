@@ -8,5 +8,9 @@ import java.util.List;
 @Mapper
 public interface NewsMapper {
 
-    List<News> getall();
+    //查询所有
+    List<News> getAll();
+
+    //通过Id查询新闻
+    News getById(Integer newsId);
 }
