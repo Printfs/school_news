@@ -3,7 +3,7 @@
 
 <mapper namespace="com.feifan.dao.NewsMapper">
     <!-- 实体类News的映射 -->
-    <resultMap id="BaseMapping" type="com.feifan.Pojo.News">
+    <resultMap id="BaseMapping" type="com.feifan.pojo.News">
         <id column="newsId" property="newsId" />
         <result column="parentId" property="parentId" />
         <result column="title" property="title"/>
@@ -18,16 +18,20 @@
     </resultMap>
 
     <!-- 查询所有新闻 -->
-    <select id="getAll"  resultMap="BaseMapping">
+    <select id="findAll"  resultMap="BaseMapping">
      SELECT newsId,parentId,title,publisher,author,content,publishTime,statusId,images,commentId,likeN
      from news
     </select>
 
     <!-- 根据newsId查询新闻 -->
-    <select id="getById" resultMap="BaseMapping" parameterType="Integer">
+    <select id="findById" resultMap="BaseMapping" parameterType="Integer">
          SELECT newsId,parentId,title,publisher,author,content,publishTime,statusId,images,commentId,likeN
      from news where newsId = #{newsId}
     </select>
 
-
+    <!-- 根据parentId查询新闻 -->
+    <select id="findAllByParentId" resultMap="BaseMapping" parameterType="Integer">
+         SELECT newsId,parentId,title,publisher,author,content,publishTime,statusId,images,commentId,likeN
+     from news where parentId = #{parentId}
+    </select>
 </mapper>

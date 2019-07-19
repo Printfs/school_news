@@ -1,7 +1,6 @@
 package com.feifan.service.impl;
 
 
-import com.feifan.common.ServletResponse;
 import com.feifan.dao.NewsMapper;
 import com.feifan.pojo.News;
 import com.feifan.service.NewService;
@@ -18,15 +17,25 @@ public class NewsServiceImpl implements NewService {
     @Resource
     NewsMapper newsMapper;
 
-    public ServletResponse getAll(Integer pn){
+    @Override
+    public PageInfo findAll(Integer pn){
         PageHelper.startPage(pn,5);
-        List<News> news = newsMapper.getAll();
+        List<News> news = newsMapper.findAll();
         PageInfo pageInfo = new PageInfo(news, 5);
-        return ServletResponse.createBySuccess(pageInfo);
+        return pageInfo;
     }
 
-    public ServletResponse<News> getById(Integer newsId) {
-        News news = newsMapper.getById(newsId);
-        return ServletResponse.createBySuccess(news);
+    @Override
+    public News findById(Integer newsId) {
+        News news = newsMapper.findById(newsId);
+        return news;
+    }
+
+    @Override
+    public PageInfo findAllByParentId(Integer parentId, Integer pn) {
+        PageHelper.startPage(pn,5);
+        List<News> news = newsMapper.findAllByParentId(parentId);
+        PageInfo pageInfo = new PageInfo(news, 5);
+        return pageInfo;
     }
 }

@@ -1,12 +1,14 @@
 package com.feifan.service;
 
-import com.feifan.common.ServletResponse;
 import com.feifan.pojo.News;
+import com.github.pagehelper.PageInfo;
 
 public interface NewService {
 
     //查询所有
-    ServletResponse getAll(Integer pn);
+    PageInfo findAll(Integer pn);
     //通过Id查询
-    ServletResponse<News> getById(Integer newsId);
+    News findById(Integer newsId);
+    //根据新闻分类查询新闻
+    PageInfo findAllByParentId(Integer parentId, Integer pn);
 }
