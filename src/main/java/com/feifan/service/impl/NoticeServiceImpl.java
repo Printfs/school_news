@@ -23,8 +23,8 @@ public class NoticeServiceImpl {
     public ServletResponse publish_notice(Notice notice){
         if (notice != null){
             Integer integer = noticeMapper.publishNotice(notice);
-            if (!StringUtils.isEmpty(integer)){
-                return ServletResponse.createByErrorMessage("公告发布成功");
+            if (integer != null){
+                return ServletResponse.createBySuccessMessage("公告发布成功");
             }
         }
 

@@ -2,7 +2,7 @@ package com.feifan.pojo;
 
 public class Notice {
     private int noticeId;
-    private String titlt;
+    private String title;
     private String content;
     private String publishTime;
     private String publisher;
@@ -10,9 +10,9 @@ public class Notice {
     public Notice() {
     }
 
-    public Notice(int noticeId, String titlt, String content, String publishTime, String publisher) {
+    public Notice(int noticeId, String title, String content, String publishTime, String publisher) {
         this.noticeId = noticeId;
-        this.titlt = titlt;
+        this.title = title;
         this.content = content;
         this.publishTime = publishTime;
         this.publisher = publisher;
@@ -22,7 +22,7 @@ public class Notice {
     public String toString() {
         return "Notice{" +
                 "noticeId=" + noticeId +
-                ", titlt='" + titlt + '\'' +
+                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", publishTime='" + publishTime + '\'' +
                 ", publisher='" + publisher + '\'' +
@@ -37,12 +37,12 @@ public class Notice {
         this.noticeId = noticeId;
     }
 
-    public String getTitlt() {
-        return titlt;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitlt(String titlt) {
-        this.titlt = titlt;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {

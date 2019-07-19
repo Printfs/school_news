@@ -5,7 +5,7 @@
 
     <resultMap id="BaseResult" type="com.feifan.pojo.Notice">
         <id column="noticeId" property="noticeId"></id>
-        <result column="titlt" property="titlt"/>
+        <result column="title" property="title"/>
         <result column="content" property="content"/>
         <result column="publishTime" property="publishTime"/>
         <result column="publisher" property="publisher"/>
