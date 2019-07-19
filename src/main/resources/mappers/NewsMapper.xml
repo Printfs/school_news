@@ -3,7 +3,7 @@
 
 <mapper namespace="com.feifan.dao.NewsMapper">
     <!-- 实体类News的映射 -->
-    <resultMap id="BaseMapping" type="com.feifan.Pojo.News">
+    <resultMap id="BaseMapping" type="com.feifan.pojo.News">
         <id column="newsId" property="newsId" />
         <result column="parentId" property="parentId" />
         <result column="title" property="title"/>
