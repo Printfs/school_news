@@ -18,5 +18,5 @@ public class News {
    private int statusId;
    private String images;
    private int commentId;
-   private int likeN;
+   private int like;
 }
