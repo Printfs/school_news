@@ -3,6 +3,7 @@ package com.feifan.service.impl;
 import com.feifan.common.ServletResponse;
 import com.feifan.dao.NoticeMapper;
 import com.feifan.pojo.Notice;
+import com.feifan.service.NoticeService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class NoticeServiceImpl {
+public class NoticeServiceImpl implements NoticeService{
 
     @Resource
     NoticeMapper noticeMapper;

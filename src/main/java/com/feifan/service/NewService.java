@@ -1,5 +1,6 @@
 package com.feifan.service;
 
+import com.feifan.common.ServletResponse;
 import com.feifan.pojo.News;
 import com.github.pagehelper.PageInfo;
 

@@ -14,7 +14,7 @@
         <result column="statusId" property="statusId"/>
         <result column="images" property="images"/>
         <result column="commentId" property="commentId"/>
-        <result column="likeN" property="likeN"/>
+        <result column="like" property="like"/>
     </resultMap>
 
     <!-- 查询所有新闻 -->
