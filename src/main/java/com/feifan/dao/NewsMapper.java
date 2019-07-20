@@ -18,6 +18,9 @@ public interface NewsMapper {
 
    // List<News> fuzzySearch(@Param("keyword") String keyword);
 
+    //发布新闻，返回影响的行数
+    public int publishNews(News news);
+
 
 
 }

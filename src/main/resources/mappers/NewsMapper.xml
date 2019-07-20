@@ -29,5 +29,8 @@
      from news where newsId = #{newsId}
     </select>
 
-
+<!--发布新闻，将新闻内容、标题、作者、出版社-->
+    <insert id="publishNews" parameterType="com.feifan.pojo.News">
+     INSERT into news(parentId,title,content,publishTime,publisher) VALUES(#{parentId},#{title},#{content},#{publishTime},#{publisher})
+ </insert>
 </mapper>

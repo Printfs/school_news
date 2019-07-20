@@ -42,7 +42,4 @@ public class NoticeServiceImpl {
         return ServletResponse.createByErrorMessage("查询失败");
     }
 
-
-
-
 }

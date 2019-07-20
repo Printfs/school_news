@@ -6,12 +6,13 @@ import com.feifan.dao.NewsMapper;
 import com.feifan.pojo.News;
 
 import com.feifan.service.NewService;
-
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -45,4 +46,31 @@ public class NewsServiceImpl implements NewService {
         News news = newsMapper.getById(newsId);
         return ServletResponse.createBySuccess(news);
     }
+
+
+    @Override
+    public ServletResponse publishNews(News news) {
+        if(news!=null){
+            int n = newsMapper.publishNews(news);
+            if(n>0){
+                return ServletResponse.createBySuccessMessage("新闻发布成功!");
+            }
+
+        }
+
+        return ServletResponse.createByErrorMessage("新闻发布失败!");
+
+    }
+
+
+    //查询所有新闻
+    @Override
+    public ServletResponse<List<News>> getAllList() {
+        List<News> newsList = newsMapper.getAll();
+        if(!CollectionUtils.isEmpty(newsList)){
+            return ServletResponse.createBySuccess(newsList);
+        }
+        return ServletResponse.createByErrorMessage("没有记录");
+    }
+
 }
