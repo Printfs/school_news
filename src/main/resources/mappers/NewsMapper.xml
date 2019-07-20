@@ -29,9 +29,10 @@
      from news where newsId = #{newsId}
     </select>
 
-    <!-- 根据parentId查询新闻 -->
-    <select id="findAllByParentId" resultMap="BaseMapping" parameterType="Integer">
+    <!--模糊查询-->
+    <select id="findAllByLike" resultMap="BaseMapping" parameterType="String">
          SELECT newsId,parentId,title,publisher,author,content,publishTime,statusId,images,commentId,likeN
-     from news where parentId = #{parentId}
+     from news where like = '%{key}%'
     </select>
+
 </mapper>

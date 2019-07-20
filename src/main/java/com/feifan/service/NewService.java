@@ -9,6 +9,6 @@ public interface NewService {
     PageInfo findAll(Integer pn);
     //通过Id查询
     News findById(Integer newsId);
-    //根据新闻分类查询新闻
-    PageInfo findAllByParentId(Integer parentId, Integer pn);
+    //查询Like新闻
+    PageInfo findAllByLike(String key,Integer pn);
 }

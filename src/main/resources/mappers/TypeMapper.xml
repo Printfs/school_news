@@ -3,14 +3,35 @@
 
 <mapper namespace="com.feifan.dao.TypeMapper">
     <!-- 实体类News的映射 -->
-    <resultMap id="BaseMapping" type="com.feifan.pojo.Type">
+    <resultMap id="BaseMapping4" type="com.feifan.pojo.Type">
         <id column="typeId" property="typeId" />
         <result column="kinds" property="kinds"></result>
     </resultMap>
 
+    <!-- 实体类News的映射 -->
+    <resultMap id="BaseMapping3" type="com.feifan.pojo.News">
+        <id column="newsId" property="newsId" />
+        <result column="parentId" property="parentId" />
+        <result column="title" property="title"/>
+        <result column="publisher" property="publisher"/>
+        <result column="author" property="author"/>
+        <result column="content" property="content"/>
+        <result column="publishTime" property="publishTime"/>
+        <result column="statusId" property="statusId"/>
+        <result column="images" property="images"/>
+        <result column="commentId" property="commentId"/>
+        <result column="likeN" property="likeN"/>
+    </resultMap>
+
     <!-- 查询所有分类 -->
-    <select id="findAll"  resultMap="BaseMapping">
+    <select id="findAll"  resultMap="BaseMapping4">
        SELECT typeId,kinds from type
      </select>
 
+
+    <!-- 根据parentId查询新闻 -->
+    <select id="findAllByParentId" resultMap="com.feifan.dao.NewsMapper.BaseMapping" parameterType="Integer">
+         SELECT newsId,parentId,title,publisher,author,content,publishTime,statusId,images,commentId,likeN
+     from news where parentId = #{parentId}
+    </select>
 </mapper>

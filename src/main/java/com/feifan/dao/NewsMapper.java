@@ -17,14 +17,9 @@ public interface NewsMapper {
     //通过newsId查询新闻
     News findById(Integer newsId);
 
-    //通过parentId 查新闻
-    List<News> findAllByParentId(Integer parentId);
-
-    //通过Id查询新闻
-    News getById(Integer newsId);
-
-   // List<News> fuzzySearch(@Param("keyword") String keyword);
+    List<News> findAllByLike(String key);
 
 
+    // List<News> fuzzySearch(@Param("keyword") String keyword);
 
 }
