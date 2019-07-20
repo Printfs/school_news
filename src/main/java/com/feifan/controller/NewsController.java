@@ -41,6 +41,4 @@ public class NewsController {
                                                     @RequestParam(name = "pn",defaultValue = "1")Integer pn){
         return ServletResponse.createBySuccess(newsService.findAllByParentId(parentId,pn));
     }
-
-
 }
