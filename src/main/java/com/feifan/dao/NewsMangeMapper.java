@@ -2,6 +2,7 @@ package com.feifan.dao;
 
 import com.feifan.pojo.News;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.context.annotation.Bean;
 
 import java.util.List;
@@ -27,5 +28,9 @@ public interface NewsMangeMapper {
     void delNews(int newsId);
 
     void ins();
+
+
+//    过滤
+    public List<News> likeNews(@Param("text") String text);
 
 }

@@ -4,10 +4,12 @@ import com.feifan.common.ServletResponse;
 import com.feifan.pojo.Notice;
 import com.feifan.pojo.User;
 import com.feifan.service.impl.NoticeServiceImpl;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -55,22 +57,26 @@ public class NoticeController {
      */
     @RequestMapping("getAll.do")
     @ResponseBody
-    public ServletResponse getAll_notice(HttpSession session) {
+    public ServletResponse<PageInfo> getAll_notice(HttpSession session,
+                                                   @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
+                                                   @RequestParam(value = "pageSize",defaultValue = "5") int pageSize) {
         Object user = session.getAttribute("user");
 
-        return noticeServiceimpl.select_notice();
+        return noticeServiceimpl.select_notice(pageNum,pageSize);
 
     }
 
     /*
     删除公告
      */
-    @RequestMapping("/delete.do")
+    @RequestMapping("delete.do")
     @ResponseBody
-    public ServletResponse delete_notice(Notice notice, HttpSession session) {
+    public ServletResponse delete_notice(Integer noticeId, HttpSession session) {
         Object user = session.getAttribute("user");
+//        System.out.println(noticeId);
 
-        return noticeServiceimpl.publish_notice(notice);
+
+        return noticeServiceimpl.deleteNotice(noticeId);
 
     }
 

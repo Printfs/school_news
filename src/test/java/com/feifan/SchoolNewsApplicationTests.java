@@ -11,6 +11,6 @@ public class SchoolNewsApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		
 	}
-
 }

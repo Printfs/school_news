@@ -19,4 +19,5 @@ public class News {
    private String images;
    private int commentId;
    private int like;
+
 }
