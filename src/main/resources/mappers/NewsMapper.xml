@@ -18,16 +18,20 @@
     </resultMap>
 
     <!-- 查询所有新闻 -->
-    <select id="getAll"  resultMap="BaseMapping">
+    <select id="findAll"  resultMap="BaseMapping">
      SELECT newsId,parentId,title,publisher,author,content,publishTime,statusId,images,commentId,likeN
      from news
     </select>
 
     <!-- 根据newsId查询新闻 -->
-    <select id="getById" resultMap="BaseMapping" parameterType="Integer">
+    <select id="findById" resultMap="BaseMapping" parameterType="Integer">
          SELECT newsId,parentId,title,publisher,author,content,publishTime,statusId,images,commentId,likeN
      from news where newsId = #{newsId}
     </select>
 
-
+    <!-- 根据parentId查询新闻 -->
+    <select id="findAllByParentId" resultMap="BaseMapping" parameterType="Integer">
+         SELECT newsId,parentId,title,publisher,author,content,publishTime,statusId,images,commentId,likeN
+     from news where parentId = #{parentId}
+    </select>
 </mapper>

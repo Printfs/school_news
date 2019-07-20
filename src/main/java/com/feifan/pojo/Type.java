@@ -1,6 +1,5 @@
 package com.feifan.pojo;
 
-
 public class Type {
     private int typeId;
     private String kinds;
