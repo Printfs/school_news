@@ -29,9 +29,16 @@
      from news where newsId = #{newsId}
     </select>
 
+
+<!--发布新闻，将新闻内容、标题、作者、出版社-->
+    <insert id="publishNews" parameterType="com.feifan.pojo.News">
+     INSERT into news(parentId,title,content,publishTime,publisher) VALUES(#{parentId},#{title},#{content},#{publishTime},#{publisher})
+ </insert>
+
     <!-- 根据parentId查询新闻 -->
     <select id="findAllByParentId" resultMap="BaseMapping" parameterType="Integer">
          SELECT newsId,parentId,title,publisher,author,content,publishTime,statusId,images,commentId,likeN
      from news where parentId = #{parentId}
     </select>
+
 </mapper>

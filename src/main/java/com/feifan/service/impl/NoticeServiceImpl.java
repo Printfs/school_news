@@ -52,6 +52,8 @@ public class NoticeServiceImpl implements NoticeService{
         return ServletResponse.createByErrorMessage("查询失败");
     }
 
+
+
     /*
     删除公告
      */
@@ -64,6 +66,7 @@ public class NoticeServiceImpl implements NoticeService{
         }
         return ServletResponse.createByErrorMessage("删除失败");
     }
+
 
 
 }
