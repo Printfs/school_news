@@ -45,13 +45,14 @@ public class NewsController {
     }
 
     /**
-     * 根据 新闻分类查询新闻
+     * 模糊匹配新闻
      */
-    @GetMapping("/news/{parentId}")
-    public ServletResponse<PageInfo> findAllByParentId(@PathVariable(name = "parentId")Integer parentId,
-                                                    @RequestParam(name = "pn",defaultValue = "1")Integer pn){
-        return ServletResponse.createBySuccess(newsService.findAllByParentId(parentId,pn));
+    @GetMapping("/news/search")
+    public ServletResponse<PageInfo> findAllByLike(@RequestParam(name = "key")String key,
+                                                   @RequestParam(name = "pn",defaultValue = "1")Integer pn){
+        return ServletResponse.createBySuccess(newsService.findAllByLike(key,pn));
     }
+
 
 
     /*发布新闻*/

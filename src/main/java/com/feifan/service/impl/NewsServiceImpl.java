@@ -37,11 +37,16 @@ public class NewsServiceImpl implements NewService {
     }
 
     @Override
-    public PageInfo findAllByParentId(Integer parentId, Integer pn) {
+    public PageInfo findAllByLike(String key, Integer pn) {
         PageHelper.startPage(pn,5);
-        List<News> news = newsMapper.findAllByParentId(parentId);
+        List<News> news = newsMapper.findAllByLike(key);
         PageInfo pageInfo = new PageInfo(news, 5);
         return pageInfo;
+
+    }
+
+
+
     }
 
 
@@ -69,5 +74,6 @@ public class NewsServiceImpl implements NewService {
         }
         return ServletResponse.createByErrorMessage("没有记录");
     }
+
 
 }

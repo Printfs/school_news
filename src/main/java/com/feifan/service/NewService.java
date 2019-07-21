@@ -20,7 +20,11 @@ public interface NewService {
    ServletResponse<List<News>> getAllList();
 
     News findById(Integer newsId);
-    //根据新闻分类查询新闻
+
+    //查询Like新闻
+    PageInfo findAllByLike(String key,Integer pn);
+
+  //根据新闻分类查询新闻
     PageInfo findAllByParentId(Integer parentId, Integer pn);
 
 }
