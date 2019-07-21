@@ -6,16 +6,9 @@ public class User {
     private String password;
     private String publisher;
     private int status;
+    private String email;
 
     public User() {
-    }
-
-    public User(int userId, String name, String password, String publisher, int status) {
-        this.userId = userId;
-        this.name = name;
-        this.password = password;
-        this.publisher = publisher;
-        this.status = status;
     }
 
     @Override
@@ -26,6 +19,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", status=" + status +
+                ", email='" + email + '\'' +
                 '}';
     }
 
@@ -67,5 +61,22 @@ public class User {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public User(int userId, String name, String password, String publisher, int status, String email) {
+        this.userId = userId;
+        this.name = name;
+        this.password = password;
+        this.publisher = publisher;
+        this.status = status;
+        this.email = email;
     }
 }

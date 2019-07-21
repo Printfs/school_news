@@ -18,6 +18,7 @@
         <result column="images" property="images"/>
         <result column="commentId" property="commentId"/>
         <result column="like" property="like"/>
+
     </resultMap>
 
     <!-- 查询 所有新闻 -->
@@ -45,5 +46,8 @@
     </insert>
 
 
+    <select id="likeNews" parameterType="string" resultMap="newsMap">
+      select newsId,title,publishTime,publisher FROM news where title LIKE  "%"#{text}"%"
+    </select>
 
 </mapper>

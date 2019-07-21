@@ -9,6 +9,7 @@
         <result column="content" property="content"/>
         <result column="publishTime" property="publishTime"/>
         <result column="publisher" property="publisher"/>
+
     </resultMap>
 
     <sql id="BaseSql">
@@ -32,5 +33,10 @@
     <delete id="delte_notice" parameterType="integer">
         DELETE from notice where noticeId=#{noticeId}
     </delete>
+
+    <!--模糊-->
+    <select id="likeNotice" resultMap="BaseResult" parameterType="string">
+        SELECT noticeId,title,publishTime,publisher FROM notice where title LIKE "%"#{text}"%"
+    </select>
 
 </mapper>

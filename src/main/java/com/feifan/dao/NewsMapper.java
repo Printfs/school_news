@@ -12,14 +12,31 @@ public interface NewsMapper {
 
 //
     //查询所有
-    List<News> findAll();
+
 
     //通过newsId查询新闻
     News findById(Integer newsId);
 
     List<News> findAllByLike(String key);
 
+    List<News> getAll();
+
+    //通过Id查询新闻
+    News getById(Integer newsId);
+
+   // List<News> fuzzySearch(@Param("keyword") String keyword);
+
+
+    //发布新闻，返回影响的行数
+    public int publishNews(News news);
 
     // List<News> fuzzySearch(@Param("keyword") String keyword);
 
+    List<News> findAll();
+
+    //通过newsId查询新闻
+    News findById(Integer newsId);
+
+    //通过parentId 查新闻
+    List<News> findAllByParentId(Integer parentId);
 }
