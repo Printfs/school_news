@@ -3,7 +3,9 @@ package com.feifan.controller;
 import com.feifan.common.ServletResponse;
 import com.feifan.pojo.Notice;
 import com.feifan.pojo.User;
+import com.feifan.security.JwtUtil;
 import com.feifan.service.impl.NoticeServiceImpl;
+import com.feifan.service.impl.UserServiceImpl;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -24,18 +26,21 @@ public class NoticeController {
     @Resource
     NoticeServiceImpl noticeServiceimpl;
 
+    @Resource
+    UserServiceImpl userServiceimpl;
+
     /*
     发布公告
      */
     @RequestMapping("/publish.do")
     @ResponseBody
-    public ServletResponse publish_notice(String title, String text, HttpSession session) {
-//        Object user = session.getAttribute("user");
-        User user = new User();
-        user.setName("任航");
-        user.setPassword("123456");
-        user.setPublisher("政教处");
-        user.setStatus(2);
+    public ServletResponse publish_notice(String title, String text,String key) {
+
+        String email = JwtUtil.getUsername(key);
+
+        User user = userServiceimpl.selectByEmail(email);
+//        System.out.println(title+"  "+text);
+
         if (!(StringUtils.isEmpty(title) && StringUtils.isEmpty(text))) {
             //组装notice
             Notice notice = new Notice();
@@ -50,6 +55,7 @@ public class NoticeController {
 
         return ServletResponse.createByErrorMessage("发布失败");
 
+
     }
 
     /*
@@ -57,13 +63,17 @@ public class NoticeController {
      */
     @RequestMapping("getAll.do")
     @ResponseBody
-    public ServletResponse<PageInfo> getAll_notice(HttpSession session,
+    public ServletResponse<PageInfo> getAll_notice(String key,
                                                    @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
                                                    @RequestParam(value = "pageSize",defaultValue = "5") int pageSize) {
-        Object user = session.getAttribute("user");
+        String useremail = JwtUtil.getUsername(key);
 
-        return noticeServiceimpl.select_notice(pageNum,pageSize);
 
+        if (useremail != null){
+            return noticeServiceimpl.select_notice(pageNum,pageSize);
+        }
+
+       return ServletResponse.createByError();
     }
 
     /*
@@ -71,12 +81,15 @@ public class NoticeController {
      */
     @RequestMapping("delete.do")
     @ResponseBody
-    public ServletResponse delete_notice(Integer noticeId, HttpSession session) {
-        Object user = session.getAttribute("user");
-//        System.out.println(noticeId);
+    public ServletResponse delete_notice(Integer noticeId, String key) {
+        String useremail = JwtUtil.getUsername(key);
 
 
-        return noticeServiceimpl.deleteNotice(noticeId);
+        if (useremail != null){
+            return noticeServiceimpl.deleteNotice(noticeId);
+        }
+
+        return ServletResponse.createByError();
 
     }
 

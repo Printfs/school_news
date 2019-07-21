@@ -2,7 +2,8 @@ package com.feifan.controller;
 
 
 import com.feifan.common.ServletResponse;
-import com.feifan.service.ManageFuzzySearchService;
+
+import com.feifan.security.JwtUtil;
 import com.feifan.service.impl.ManageFuzzySearchServiceImpl;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
@@ -24,28 +25,49 @@ public class ManageFuzzySearchController {
     @RequestMapping("fuzzySearchNews.do")
     @ResponseBody
     public ServletResponse<PageInfo> like_search_news(String text,
-                                                 @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
-                                                 @RequestParam(value = "pageSize",defaultValue = "5") int pageSize){
+                                                      @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+                                                      @RequestParam(value = "pageSize", defaultValue = "5") int pageSize,
+                                                      String key) {
 
 
-        if (text == null){
+        if (text == null) {
             return ServletResponse.createByErrorMessage("输入信息有误");
         }
 
-        return mfss.VoNews(pageNum,pageSize,text);
+        //检查
+        String useremail = JwtUtil.getUsername(key);
+
+
+        if (useremail != null) {
+            return mfss.VoNews(pageNum, pageSize, text);
+        }
+
+        return ServletResponse.createByError();
+
+
     }
 
     @RequestMapping("fuzzySearchNotice.do")
     @ResponseBody
     public ServletResponse<PageInfo> like_search_notice(String text,
-                                                 @RequestParam(value = "pageNum",defaultValue = "1") int pageNum,
-                                                 @RequestParam(value = "pageSize",defaultValue = "5") int pageSize){
+                                                        @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+                                                        @RequestParam(value = "pageSize", defaultValue = "5") int pageSize,
+                                                        String key) {
 
 
-        if (text == null){
+        if (text == null) {
             return ServletResponse.createByErrorMessage("输入信息有误");
         }
+        //检查
+        String useremail = JwtUtil.getUsername(key);
 
-        return mfss.VoNotice(pageNum,pageSize,text);
+
+        if (useremail != null) {
+            return mfss.VoNotice(pageNum, pageSize, text);
+        }
+
+        return ServletResponse.createByError();
+
+
     }
 }
